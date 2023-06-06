@@ -5,21 +5,22 @@
     
      
 <%
-	request.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
 
+String name = null;
+
+boolean isValid = false;
+
+try {
 	Connection conn = Util.getConnection();
-	
+
 	String id = request.getParameter("id");
-    String pwd = request.getParameter("pwd");
-    String name = null;
-	
+	String pwd = request.getParameter("pwd");
 	
 	String sql = "SELECT student_id, pwd, name FROM user_tbl WHERE student_id = ?";
 	PreparedStatement pstmt = conn.prepareStatement(sql);
 	
 	pstmt.setString(1, id);
-    
-    boolean isValid = false;
     
     ResultSet rs = pstmt.executeQuery();
     
@@ -30,6 +31,10 @@
 	    	name = rs.getString(3);
 	    }    
     }
+}
+catch(Exception e) {
+	e.printStackTrace();
+}
 %>
 
 
