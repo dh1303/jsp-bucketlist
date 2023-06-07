@@ -15,13 +15,13 @@
 
 	<%
 	//로그인된 아이디가 있는지 읽어와보기
-	String id =(String)session.getAttribute("id");
+	String id = String.valueOf(session.getAttribute("id"));
 	%>
 	
-	<%if(id==null){%>
+	<% if("null".equals(id)){ %>
 		<h2>로그인</h2>
-		<form action="u_action.jsp" method="post">
-		<input type="text" name="id" placeholder="아이디..."/>
+		<form action="lo_action.jsp" method="post">
+		<input type="text" name="id" placeholder="학번..."/>
 		<input type="password" name="pwd" placeholder="비밀번호..."/>
 		<button type="submit">로그인</button>
 		</form>

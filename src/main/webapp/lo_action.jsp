@@ -53,7 +53,7 @@ catch(Exception e) {
 	</p>
 <%}else{ %>
 	<p>
-		아이디 혹은 비밀번호가 틀렸습니다.
+		아이디 혹은 비밀번호가 틀렸습니다. &nbsp;
 		<a href="login.jsp">다시 시도</a>
 	</p>
 <%} %>
